@@ -1,0 +1,136 @@
+.flame-container {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 48px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 4;
+}
+.flame {
+  position: relative;
+  width: 18px;
+  height: 32px;
+  background: radial-gradient(circle at 50% 30%, #fff6a1 0%, #ffb347 55%, rgba(255, 140, 0, 0.9) 80%);
+  border-radius: 50% 50% 45% 45%;
+  filter: drop-shadow(0 0 8px rgba(255, 214, 94, 0.8));
+  transform-origin: center bottom;
+}
+
+.flame.flame--lit {
+  animation: flame-flicker 0.18s alternate infinite;
+}
+
+.flame.flame--extinguish {
+  animation: flame-extinguish 0.7s ease-in forwards;
+  filter: drop-shadow(0 0 4px rgba(255, 214, 94, 0.4));
+}
+
+.flame-core {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 14px;
+  background: radial-gradient(circle at 50% 20%, #fffdf2 0%, #ffd36b 75%);
+  border-radius: 45% 45% 50% 50%;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.flame.flame--extinguish .flame-core {
+  animation: flame-core-dim 0.7s ease-in forwards;
+}
+
+.wind-gust {
+  position: absolute;
+  left: -70px;
+  bottom: 4px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.wind-line {
+  display: block;
+  height: 4px;
+  width: 60px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(173, 220, 255, 0.95));
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: gust-travel 0.55s ease-out forwards;
+  animation-delay: var(--gust-delay, 0s);
+  filter: blur(0.5px);
+}
+
+.wind-line:nth-child(2) {
+  width: 52px;
+  opacity: 0.9;
+}
+
+.wind-line:nth-child(3) {
+  width: 44px;
+  opacity: 0.85;
+}
+
+@keyframes flame-flicker {
+  from {
+    transform: translateX(-1px) scale(0.96);
+    opacity: 0.95;
+  }
+  to {
+    transform: translateX(1px) scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes flame-extinguish {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  40% {
+    transform: translateX(6px) scale(0.85) skewX(-8deg);
+    opacity: 0.85;
+  }
+  70% {
+    transform: translateX(14px) scale(0.45) skewX(-20deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(22px) scale(0) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flame-core-dim {
+  0% {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-10%) scale(0);
+  }
+}
+
+@keyframes gust-travel {
+  0% {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(90px);
+  }
+}

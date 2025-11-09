@@ -1,0 +1,230 @@
+.cake-container {
+  position: relative;
+  width: 260px;
+  margin: 130px auto 32px;
+  text-align: center;
+}
+
+.cake-body {
+  position: relative;
+  width: 240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding-top: 40px;
+}
+
+.cake-topper {
+  position: relative;
+  width: 180px;
+  height: 120px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: -60px;
+  z-index: 5;
+}
+
+.cake-tier--top {
+  width: 140px;
+  height: 70px;
+  border-radius: 28px;
+  margin-top: 0;
+  overflow: visible;
+  position: relative;
+}
+
+.tier-cap {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 26px;
+  background: radial-gradient(circle at 50% 30%, #f0f8ff 0%, #a8d2ff 85%);
+  border-radius: 50%;
+  box-shadow: inset 0 -8px 10px rgba(68, 121, 178, 0.18);
+}
+
+.cake-tier--middle {
+  width: 190px;
+  height: 90px;
+  border-radius: 30px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.cake-tier--bottom {
+  width: 220px;
+  height: 110px;
+  border-radius: 34px 34px 28px 28px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+/* Base fill */
+.cake-tier {
+  background: linear-gradient(180deg, #d9efff 0%, #a8d1f7 65%, #83b6e9 100%);
+  box-shadow: 0 18px 28px rgba(0, 0, 0, 0.16);
+  overflow: visible;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Accent band */
+.cake-tier::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  height: 26px;
+  background: linear-gradient(180deg, #a6caf2 0%, #5f8fc3 100%);
+}
+
+.cake-tier--top::before {
+  bottom: 16px;
+  height: 20px;
+}
+
+.cake-tier--bottom::before {
+  bottom: 28px;
+  height: 30px;
+}
+
+/* Wavy highlight */
+.cake-tier::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 24px;
+  height: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.cake-tier--top::after {
+  bottom: 18px;
+}
+
+.cake-tier--bottom::after {
+  bottom: 32px;
+}
+
+.tier-frosting {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 8px;
+  width: calc(100% - 12px);
+  z-index: 2;
+}
+
+.cake-tier--top .tier-frosting {
+  width: 115px;
+}
+
+.cake-tier--middle .tier-frosting {
+  width: 170px;
+}
+
+.cake-tier--bottom .tier-frosting {
+  width: 210px;
+}
+
+.frosting-swirl {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #def3ff 0%, #67b4f5 70%, #2082d9 100%);
+  box-shadow: inset -4px -6px 10px rgba(0, 0, 0, 0.18);
+}
+
+.frosting-swirl::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.8), transparent 70%);
+  border-radius: 50%;
+}
+
+.candle-single {
+  position: absolute;
+  top: -48px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.candle-body {
+  position: relative;
+  width: 32px;
+  height: 96px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbe5ff 20%, #dac7ff 70%, #b09cf8 100%);
+  border-radius: 16px 16px 20px 20px;
+  box-shadow: inset 0 -6px 10px rgba(107, 86, 190, 0.25), 0 10px 16px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+}
+
+.candle-body::after {
+  content: "";
+  position: absolute;
+  inset: 8px 6px auto 6px;
+  height: 50%;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.75) 0%, transparent 70%);
+  border-radius: 12px 12px 18px 18px;
+  opacity: 0.85;
+}
+
+.candle-stripe {
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(134, 101, 246, 0.6) 80%);
+  border-radius: 8px;
+}
+
+.candle-stripe--left {
+  left: 6px;
+  transform: skewY(-6deg);
+}
+
+.candle-stripe--right {
+  right: 6px;
+  transform: skewY(6deg);
+}
+
+.wick {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 28px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  z-index: 2;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cake-plate {
+  width: 260px;
+  height: 24px;
+  margin: 10px auto 0;
+  background: radial-gradient(circle at 50% 30%, #f8de6f 0%, #ebb937 50%, #d49d1f 100%);
+  border-radius: 50% / 70%;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24);
+}
